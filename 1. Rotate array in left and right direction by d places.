@@ -1,0 +1,39 @@
+Rotate array in left and right direction by d places.
+N = 5, D = 2
+arr[] = {1,2,3,4,5}
+Output: 3 4 5 1 2
+Explanation: 1 2 3 4 5  
+when rotated by 2 elements, it becomes 3 4 5 1 2.
+
+Approch 1: using loop;
+  # Left Rotate
+    void rotateArr(int arr[], int d, int n){
+          for(int i=1; i<=d; i++){
+          int first = arr[0];
+          for(int i=0; i<n-1; i++){
+              arr[i]=arr[i+1];
+          }
+          arr[n-1]=first;
+      }
+      
+#Right Rotate
+     void rotateArr(int arr[], int d, int n){
+          for(int i=1; i<=d; i++){
+          int last = arr[n-1];
+          for(int i=n-1; i>0; i–){
+              arr[i]=arr[i-1];
+          }
+          arr[0]=last;
+      }
+
+      
+Approch 2 : using Reverse()
+void rotateArr(int arr[], int d, int n){
+       d = d%n;
+       reverse(arr,arr+d);
+       reverse(arr+d,arr+n);
+       reverse(arr,arr+n);
+}
+
+
+
